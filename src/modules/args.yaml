@@ -3,5 +3,6 @@ num_workers: 8
 num_epochs: 100
 lr: 0.01
 weight_decay: 0.02
-
+schedule_step: 50
+schedule_gamma: 0.2
 k_fold: 3

@@ -1,24 +1,16 @@
-# digit-recognizer
+# 简单的个位数字识别器
 
-## Project setup
-```
-npm install
-```
+使用手搓的 ResNet 实现数字识别。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 使用
 
-### Compiles and minifies for production
-```
-npm run build
-```
+转到 `src/modules` 中运行 `app.py` ，再在项目目录下运行 `npm run serve` ，即可在 `localhost` 中打开。
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 自定义模型
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+当前的模型精度不高，如果需要训练自己的模型，遵循以下原则：
+
+1. 模型的输入为单通道 $28\times 28$ 灰度图像（$1\times 28 \times 28$）。
+2. 将 `resnet.pth` 换成您的模型实例。
+3. 如果模型架构发生更改，在 `app.py` 中将模型架构替换为自己的模型架构。
+4. `gen.py` 提供了原本模型的训练代码，如果仅需要训练模型，可以忽略 k折交叉验证及绘图库等工具，您可以通过修改 `args.yaml` 中的超参数定制学习过程。

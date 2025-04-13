@@ -101,7 +101,7 @@ def train_per(train_data, train_label, test_data, test_label):
     net = ResNet().to(device)
     loss = nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(net.parameters(), lr=params['lr'], weight_decay=params['weight_decay'])
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.2)
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=params['schedule_step'], gamma=params['schedule_gamma'])
 
     running_loss = torch.zeros((2, num_epochs)).to(device)
     running_acc = torch.zeros((2, num_epochs)).to(device)
